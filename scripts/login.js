@@ -1,44 +1,44 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const signInForm = document.querySelector('.form-container.sign-in form');
-    const adminCheckbox = document.getElementById('adminCheckbox');
+// Assuming this JavaScript code is in a separate file, let's say signup.js
 
-    signInForm.addEventListener('submit', function (event) {
-        event.preventDefault();
+// Function to handle form submission
+function submitForm() {
+    // Get form data
+    let name = document.getElementById('username').value;
+    let password = document.getElementById('password').value;
 
-        const enteredUsername = document.querySelector('.form-container.sign-in input[type="text"]').value;
-        const enteredPassword = document.querySelector('.form-container.sign-in input[type="password"]').value;
+    // Prepare data to be sent in the request body
+    var formData = new FormData();
+    formData.append('name', name);
+    formData.append('password', password);
 
-        const isAdminLogin = adminCheckbox.checked;
-
-        if (isAdminLogin) {
-            const adminCredentials = { username: 'admin', password: 'admin123' };
-
-            if (enteredUsername === adminCredentials.username && enteredPassword === adminCredentials.password) {
-                alert('Admin Login successful!');
-                window.location.href = "../pages/admin.html";
-            } else {
-                alert('Invalid admin credentials. Please try again.');
-            }
+    // Make a POST request to the PHP script
+    fetch('http://localhost/Assignment%202-todo/backend/login.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        console.log(data)
+        // Handle the response
+        if (data.status === 'logged_in') {
+            alert(data.message);
+            // Redirect to another page if needed
+            window.location.href = '../pages/main.html'+data.user_id;
         } else {
-            // Regular user login
-function loadUsers() {
-  const storedUsers = localStorage.getItem('user');
-  if (storedUsers) {
-    users = JSON.parse(storedUsers);
-
-    console.log(users)
-  }
+            alert(data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // Handle error
+        alert('An error occurred. Please try again later.');
+    });
 }
 
-loadUsers();
-user=users.find(user => user.username === enteredUsername)
-
-            if (users && enteredUsername === user.username && enteredPassword === user.password) {
-                alert('Login successful!');
-                window.location.href = "../pages/main.html";
-            } else {
-                alert('Invalid username or password. Please try again.');
-            }
-        }
-    });
+// Attach form submission function to submit button click event
+document.getElementById('loginBtn').addEventListener('click', function(event) {
+    console.log("clicked")
+    event.preventDefault(); // Prevent default form submission
+    submitForm(); // Call the function to submit the form
 });
+

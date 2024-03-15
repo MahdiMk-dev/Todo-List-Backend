@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO List</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+
+    <link rel="stylesheet" href="../styles/utilities.css" />
+  </head>
+  <body>
+    <header class="flex white-text">
+      <ul class="flex-space-evenly nav-buttons ">
+        <li class="flex center">Home</li>
+        <li class="flex center">Profile</li>
+        <li class="flex center">About</li>
+      </ul>
+    </header>
+
+    <section class="flex hero">
+      <img src="../images/hero.PNG" alt="Hero" />
+
+    </section>
+
+    <section class="items-section">
+        <div class="flex center">
+        <div class="todo-info">
+            <h1>TO-DO List</h1>
+            <p>Get your things done!</p>
+            <button class="primary-button" id="add-button" Mahdi="">Add Task</button>
+          </div>
+        </div>
+      <div class="flex items" id="items-container"></div>
+    </section>
+
+    <script src="../scripts/main.js"></script>
+  </body>
 </html>

@@ -1,25 +1,63 @@
-/* Text colors */
-
-.text-primary {
-    color: #28a745;
-}
-
-/* Button */
-
-.btn {
-    cursor: pointer;
-    display: inline-block;
-    padding: 10px 30px;
-    color: #fff;
-    background-color: #28a745;
-    border: none;
-    border-radius: 5px;
-}
-
-.btn:hover {
-    opacity: 0.9;
-}
-.flex{
+.flex {
     display: flex;
-    justify-content: space-evenly;
-}
+  }
+  
+  .center {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .row {
+    flex-direction: row;
+  }
+  
+  .column {
+    flex-direction: column;
+  }
+  .space-between{
+    padding: 10px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .nav-buttons {
+    min-height: 60px;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  .nav-buttons > li {
+    padding: 0 10px;
+    cursor: pointer;
+  }
+  
+  .nav-buttons > li:hover {
+    background-color: #444;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .nav-buttons > li > a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  .hero {
+    position: relative;
+    color: #333;
+    padding: 20px;
+    height: 100vh;
+  }
+  
+  .hero > img {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: -1;
+    object-fit: cover;
+  }
+
+  

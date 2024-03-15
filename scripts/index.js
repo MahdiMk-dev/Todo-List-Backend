@@ -1,43 +1,46 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const signupForm = document.getElementById('sign-up');
+// Assuming this JavaScript code is in a separate file, let's say signup.js
 
-    signupForm.addEventListener('submit', function (event) {
-        event.preventDefault();
+// Function to handle form submission
+function submitForm() {
+    // Get form data
+    var name = document.getElementById('username').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
 
-        const username = document.getElementById('username').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        const storedUsers = localStorage.getItem('user');
-        if (storedUsers) {
-         
-          users = JSON.parse(storedUsers);
-            if (!Array.isArray(users))//to avoid dealing with users as an object when it contains one item only, force array form
-            users=[users]
+    // Prepare data to be sent in the request body
+    var formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('password', password);
+
+    // Make a POST request to the PHP script
+    fetch('http://localhost/Assignment%202-todo/backend/index.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        console.log(data)
+        // Handle the response
+        if (data.status === 'success') {
+            alert(data.message);
+            // Redirect to another page if needed
+            window.location.href = './pages/main.html?user_id='+data.user_id;
+        } else {
+            alert(data.message);
         }
-        else users=[];
-        const existingUser = users.find(user => user.username === username);
-  
-          if (existingUser) {
-            alert('Username already exists. Please choose a different one.');
-            return;
-          }
-        const user = {
-            id: users.length + 1,
-            username: username,
-            email: email,
-            password: password
-        };
-
-
-        users.push(user);
-
-        localStorage.setItem('user', JSON.stringify(users));
-
-        alert('Signup successful!');
-
-
-        window.location.href = "./pages/main.html";
-
-
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // Handle error
+        alert('An error occurred. Please try again later.');
     });
+}
+
+// Attach form submission function to submit button click event
+document.getElementById('signupBtn').addEventListener('click', function(event) {
+    console.log("clicked")
+    event.preventDefault(); // Prevent default form submission
+    submitForm(); // Call the function to submit the form
 });
+

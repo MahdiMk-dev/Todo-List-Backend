@@ -10,21 +10,21 @@
 <body>
   <div class="wrapper">
     <div class="form-container sign-in">
-      <form action="#">
+      <form action="../backend/login.php" method="post">
         <h2>Sign In</h2>
         <div class="input-group">
           <label for="username">Username</label>
-          <input type="text" required />
+          <input id='username' type="text" required />
         </div>
         <div class="input-group">
           <label for="password">Password</label>
-          <input type="password" required />
+          <input type="password" id='password' required />
         </div>
         <div class="input-group ">
           <label for="adminCheckbox">Admin Login</label>
           <input type="checkbox" id="adminCheckbox" />
         </div>
-        <button type="submit">Sign In</button>
+        <button id='loginBtn' type="submit">Sign In</button>
         <div class="link-container">
           <p>
             Don't have an account?
