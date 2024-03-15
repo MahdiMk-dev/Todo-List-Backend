@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/add.css">
+    <link rel="stylesheet" href="../styles/utilities.css">
+
+    <title>TO DO</title>
+</head>
+<body>
+    <header class="flex white-text">
+        
+      
+        <ul class="flex-space-evenly nav-buttons ">
+          <li class="flex center"><a id="user">Home</a></li>
+          <li class="flex center">Profile</li>
+          <li class="flex center">About</li>
+        </ul>
+      </header>  
+      <h1>Add To-Do List</h1>
+
+
+      <section class="add-transaction">
+      	 <h2>Add New Task</h2>
+        <form  method="post" id="add-form">
+
+          <label for="title">Title:</label>
+          <textarea id="title" name="title" placeholder="Enter title"></textarea>
+
+    
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" placeholder="Enter description"></textarea>
+          
+          <label for="task">Task Importance:</label>
+          <select id="imp" name="task-imp" required>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>    
+
+          </select>
+          <input type="hidden" name="user_id" id="user_id" value="">
+
+    
+          <button class='primary-button' type="submit" id="updateTask">Update Task</button>
+        </form>
+      </section>
+      <script src="../scripts/update.js" ></script>
+
+</body>
+</html>

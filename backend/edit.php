@@ -2,13 +2,23 @@
 include('connection.php');
 $id=$_POST['id'];
 $title=$_POST['title'];
-$description=$_POST['decription'];
-$importance=$_POST['importance'];
-$user_id=$_POST['user_id'];
-
-$query = $mysqli->prepare("update tasks set title='$title',description='$description',importance='$importance' where id='$id'");
-$query->execute();
+$description=$_POST['description'];
+$importance=$_POST['imp'];
 
 
+$query = $mysqli->prepare("update tasks set title=?,description=?,importance=? where id=?");
+$query->bind_param("sssi", $title, $description,$importance,$id);
+//var_dump($query);
+if($query->execute()){
+    $response['status'] = "success";
+    $response["message"]="Task Updated Succesfuly";
+    }
+    else{
+    $response["status"] = "failed";
+    $response["message"]="Task Not updated";
+    }
+    header('Content-Type: application/json');
+
+    echo json_encode($response);
 
 ?>

@@ -46,6 +46,10 @@ var myLink = document.getElementById('user');
 const queryString = window.location.search;
 const searchParams = new URLSearchParams(queryString);
 const user_id = searchParams.get('id');
+
+if(!user_id){
+window.location.href='./login.html'
+}
 // Set the href attribute dynamically
 myLink.setAttribute('href', './main.html?user_id='+user_id);
 // Attach form submission function to submit button click event

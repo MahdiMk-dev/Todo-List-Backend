@@ -23,7 +23,7 @@ function submitForm() {
         if (data.status === 'logged_in') {
             alert(data.message);
             // Redirect to another page if needed
-            window.location.href = '../pages/main.html'+data.user_id;
+            window.location.href = './main.html?user_id='+data.user_id;
         } else {
             alert(data.message);
         }
