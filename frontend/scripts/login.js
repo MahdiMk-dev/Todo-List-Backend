@@ -21,18 +21,14 @@ function submitForm() {
         console.log(data)
         // Handle the response
         if (data.status === 'logged_in') {
-            alert(data.message);
+            alert('logged in successfully');
             // Redirect to another page if needed
             window.location.href = './main.html?user_id='+data.user_id;
         } else {
-            alert(data.message);
+            alert(data.status);
         }
     })
-    .catch(error => {
-        console.error('Error:', error);
-        // Handle error
-        alert('An error occurred. Please try again later.');
-    });
+
 }
 
 // Attach form submission function to submit button click event

@@ -8,7 +8,6 @@ $importance=$_POST['imp'];
 
 $query = $mysqli->prepare("update tasks set title=?,description=?,importance=? where id=?");
 $query->bind_param("sssi", $title, $description,$importance,$id);
-//var_dump($query);
 if($query->execute()){
     $response['status'] = "success";
     $response["message"]="Task Updated Succesfuly";

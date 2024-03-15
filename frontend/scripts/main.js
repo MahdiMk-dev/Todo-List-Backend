@@ -49,7 +49,6 @@ function fetchTasks() {
               <div class="flex space-between">
                   <button class="secondary-button delete" data-task-id= ${task.id}>delete</button>
               
-                  <button class="secondary-button update" data-task-id= ${task.id}>Update</button>
                   </div>
             </div>`;
           });
@@ -63,11 +62,7 @@ function fetchTasks() {
           alert('No tasks found');
       }
   })
-  .catch(error => {
-      console.error('Error:', error);
-      // Handle error
-      alert('An error occurred. Please try again later.');
-  });
+
 }
 
 // Call the fetchTasks function when the page loads
@@ -95,17 +90,13 @@ function deleteTask(taskId) {
   .then(data => {
       // Handle the response
       if (data.status === 'success') {
-          alert(data.message);
+          alert(data.status);
           // Optionally, reload the task list or update UI
       } else {
-          alert(data.message);
+          alert(data.status);
       }
   })
-  .catch(error => {
-      console.error('Error:', error);
-      // Handle error
-      alert('An error occurred. Please try again later.');
-  });
+
 }
 function attacDoneeEventListeners() {
 doneButtons = document.querySelectorAll(".markAsDone");
@@ -143,17 +134,13 @@ function MarkAsDone(taskId) {
         console.log(data)
         // Handle the response
         if (data.status === 'success') {
-            alert(data.message);
+            alert(data.status);
             // Optionally, reload the task list or update UI
         } else {
-            alert(data.message);
+            alert(data.status);
         }
     })
-    .catch(error => {
-        console.error('Error:', error);
-        // Handle error
-        alert('An error occurred. Please try again later.');
-    });
+
   }
   function attachDeleteEventListeners() {
   delButtons = document.querySelectorAll(".delete");
@@ -191,17 +178,13 @@ function MarkAsDone(taskId) {
     .then(data => {
         // Handle the response
         if (data.status === 'success') {
-            alert(data.message);
+            alert(data.status);
             // Optionally, reload the task list or update UI
         } else {
-            alert(data.message);
+            alert(data.status);
         }
     })
-    .catch(error => {
-        console.error('Error:', error);
-        // Handle error
-        alert('An error occurred. Please try again later.');
-    });
+
   }
   function attacDoneeEventListeners() {
   doneButtons = document.querySelectorAll(".markAsDone");

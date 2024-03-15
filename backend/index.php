@@ -28,6 +28,5 @@ if ($email_exists == 0) {
 }
 header('Content-Type: application/json');
 echo json_encode($response);
-//header("Location: ../pages/main.html");
 
 ?>

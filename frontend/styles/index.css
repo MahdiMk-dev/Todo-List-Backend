@@ -25,13 +25,9 @@ body {
     z-index: 10;
   }
   
-  .wrapper {
+  .form-container {
     max-width: 400px;
     width: 100%;
-    padding: 20px;
-  }
-  
-  .form-container {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 40px;
     border-radius: 8px;
@@ -78,13 +74,22 @@ body {
     color: #28a745;
   }
   
+  .remember {
+    margin-bottom: 20px;
+  }
+  
+  .remember label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
   button {
     width: 100%;
     padding: 10px;
     font-size: 16px;
     border-radius: 4px;
     border: none;
-    background-color: #28a745;
+    background-color: #a2a2a2;
     color: #fff;
     cursor: pointer;
   }
@@ -98,7 +103,7 @@ body {
   }
   
   .link-container a {
-    color: #28a745;
+    color: #a2a2a2;
     text-decoration: none;
     font-weight: bold;
   }
@@ -107,10 +112,11 @@ body {
     text-decoration: underline;
   }
   
-  /* Responsive Styles */
+
+/* Responsive adjustments */
 @media screen and (max-width: 768px) {
   .form-container {
-    padding: 30px;
+    padding: 20px;
   }
 
   .input-group {
@@ -126,8 +132,8 @@ body {
     font-size: 14px;
   }
 
-  .form-container h2 {
-    font-size: 24px;
+  .remember label {
+    font-size: 12px;
   }
 
   button {
@@ -135,4 +141,3 @@ body {
     font-size: 14px;
   }
 }
-

@@ -140,6 +140,9 @@ header {
   align-items: center;
   justify-content: center;
 }
+.update:hover{
+background-color: orange;
+}
 .flex-space-evenly{
   display: flex;
   justify-content: space-between;
